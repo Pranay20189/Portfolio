@@ -1,1242 +1,805 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Nalliboina Pranay Teja - Java Developer and Full-Stack Developer.">
-  <title>Pranay Teja | Java & Full-Stack Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pranay Teja | Software Developer</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-  <style>
-    :root {
-      --bg: #080d19;
-      --card: rgba(17, 28, 48, 0.78);
-      --border: rgba(148, 163, 184, 0.15);
-      --text: #f1f5f9;
-      --muted: #a6b2c5;
-      --accent: #55d6be;
-      --accent2: #69a9ff;
-      --max-width: 1120px;
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #e5e7eb;
+    line-height: 1.7;
+}
+
+:root {
+    --accent: #45d6c5;
+    --muted: #9caec4;
+    --card: #131e30;
+}
+
+.container {
+    width: 88%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* Navbar */
+header {
+    background: #0b1120;
+    border-bottom: 1px solid #253247;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    min-height: 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 27px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    min-height: 610px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    background: #123b4b;
+    opacity: .25;
+    filter: blur(100px);
+    border-radius: 50%;
+    right: 5%;
+    top: 10%;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    gap: 55px;
+    position: relative;
+    z-index: 1;
+}
+
+.tag {
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.15;
+    margin: 20px 0;
+    color: white;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #45d6c5, #62a9ed);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 650px;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #34445b;
+    color: white;
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: #071521;
+    border-color: var(--accent);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    transition: .3s;
+}
+
+/* Profile card */
+.profile-card {
+    background: linear-gradient(145deg, #1b3045, #111b2c);
+    border: 1px solid #34465b;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 15px 40px #0004;
+}
+
+.initials {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #45d6c5, #579be5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: #071521;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profile-card h2 {
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.profile-card .role {
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+.profile-card p {
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+/* Technology icons */
+.tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 19px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.tech-row i {
+    font-size: 35px;
+    color: #a8c1d8;
+    transition: .3s;
+}
+
+.tech-row i:hover {
+    color: var(--accent);
+    transform: translateY(-5px);
+}
+
+/* Common sections */
+section {
+    padding: 75px 0;
+    border-top: 1px solid #202d40;
+}
+
+.section-title {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    margin-bottom: 35px;
+}
+
+.about-text {
+    color: #bdc9d8;
+    max-width: 900px;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    background: var(--card);
+    border: 1px solid #26384e;
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+    transition: .3s;
+}
+
+.skill-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.skill-card i {
+    font-size: 35px;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.skill-card h3 {
+    font-size: 15px;
+}
+
+/* Experience */
+.experience-card {
+    background: var(--card);
+    padding: 28px;
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+}
+
+.experience-card h3 {
+    color: white;
+}
+
+.experience-card .date {
+    color: var(--accent);
+    font-size: 14px;
+    margin: 5px 0 15px;
+}
+
+.experience-card p {
+    color: var(--muted);
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--card);
+    border: 1px solid #293b51;
+    border-radius: 12px;
+    padding: 27px;
+    transition: .3s;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.project-card h3 {
+    font-size: 21px;
+    margin: 10px 0;
+    color: white;
+}
+
+.project-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.project-card ul {
+    padding-left: 20px;
+    color: #bdc9d8;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+.project-card li {
+    margin: 5px 0;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.tech-tags span {
+    background: #20364a;
+    color: #80dccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.project-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.project-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Education */
+.education-card {
+    background: var(--card);
+    border: 1px solid #293b51;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.education-card h3 {
+    color: white;
+}
+
+.education-card p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+/* Contact */
+.contact-box {
+    background: linear-gradient(120deg, #142b3e, #17233b);
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #34465b;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin: 12px 0 20px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contact-links a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #26364a;
+    color: #8292a7;
+    font-size: 13px;
+}
+
+/* Mobile */
+@media(max-width: 850px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        padding: 65px 0;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(ellipse at 12% 12%, rgba(35,105,150,.18), transparent 35%),
-        radial-gradient(ellipse at 88% 35%, rgba(89,76,180,.14), transparent 35%),
-        linear-gradient(135deg, #080d19, #0b1424 55%, #080d19);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      opacity: .12;
-      background-image:
-        linear-gradient(rgba(148,163,184,.10) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148,163,184,.10) 1px, transparent 1px);
-      background-size: 55px 55px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(var(--max-width), 88%);
-      margin: auto;
-    }
-
-    /* NAVBAR */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(8,13,25,.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 500;
-      transition: .25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 
     .menu-btn {
-      display: none;
-      background: transparent;
-      color: white;
-      border: 1px solid var(--border);
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-size: 21px;
-      cursor: pointer;
+        display: block;
     }
 
-    /* HERO */
-
-    .hero {
-      min-height: 690px;
-      display: grid;
-      grid-template-columns: 1.45fr .85fr;
-      align-items: center;
-      gap: 65px;
-      padding-top: 65px;
-      padding-bottom: 65px;
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: #111b2c;
+        padding: 20px;
+        flex-direction: column;
+        gap: 18px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 25px;
+    nav ul.show {
+        display: flex;
+    }
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 91%;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 25px;
-      height: 2px;
-      background: var(--accent);
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .hero h1 {
-      font-size: clamp(43px, 5.4vw, 68px);
-      line-height: 1.12;
-      letter-spacing: -3px;
-      font-weight: 800;
-      margin-bottom: 22px;
+        font-size: 43px;
     }
 
-    .hero h1 span {
-      display: block;
-      background: linear-gradient(90deg, #55d6be, #69a9ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .section-title {
+        font-size: 27px;
     }
-
-    .hero-description {
-      color: var(--muted);
-      max-width: 650px;
-      font-size: 15px;
-      line-height: 1.9;
-      margin-bottom: 30px;
-    }
-
-    .hero-description strong {
-      color: #fff;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 19px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      transition: .25s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #07131b;
-      border-color: var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: #82ead6;
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      color: white;
-      background: rgba(255,255,255,.025);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    /* PROFILE CARD */
-
-    .profile-card {
-      background: linear-gradient(145deg, rgba(23,38,62,.95), rgba(12,21,38,.95));
-      border: 1px solid rgba(148,163,184,.19);
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 25px 70px rgba(0,0,0,.25);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 190px;
-      background: rgba(85,214,190,.12);
-      filter: blur(70px);
-      top: -75px;
-      right: -70px;
-    }
-
-    .avatar {
-      width: 70px;
-      height: 70px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #07131b;
-      font-size: 25px;
-      font-weight: 800;
-      margin-bottom: 23px;
-    }
-
-    .profile-card h2 {
-      font-size: 21px;
-      margin-bottom: 5px;
-    }
-
-    .profile-role {
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 22px;
-    }
-
-    .profile-info {
-      display: grid;
-      gap: 13px;
-      color: var(--muted);
-      font-size: 12px;
-      overflow-wrap: anywhere;
-    }
-
-    .profile-info strong {
-      color: #e8eef8;
-    }
-
-    .availability {
-      margin-top: 23px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    /* COMMON SECTIONS */
-
-    section {
-      padding: 90px 0;
-      scroll-margin-top: 75px;
-    }
-
-    .section-heading {
-      margin-bottom: 38px;
-    }
-
-    .section-label {
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .section-heading h2 {
-      font-size: 34px;
-      line-height: 1.25;
-      letter-spacing: -1px;
-      margin-top: 8px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 10px;
-    }
-
-    .about-text,
-    .stat-card,
-    .skill-card,
-    .project-card,
-    .experience-card,
-    .education-card,
-    .cert-card,
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      backdrop-filter: blur(10px);
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 30px;
-    }
-
-    .about-text {
-      padding: 30px;
-    }
-
-    .about-text p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 15px;
-    }
-
-    .about-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 13px;
-    }
-
-    .stat-card {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .stat-card h3 {
-      color: var(--accent);
-      font-size: 28px;
-    }
-
-    .stat-card p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* SKILLS */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .skill-card {
-      padding: 25px;
-      transition: .25s;
-    }
-
-    .skill-card:hover,
-    .project-card:hover,
-    .experience-card:hover,
-    .education-card:hover,
-    .cert-card:hover {
-      border-color: rgba(85,214,190,.5);
-      transform: translateY(-4px);
-    }
-
-    .skill-card h3 {
-      font-size: 15px;
-      margin-bottom: 18px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .tag {
-      background: rgba(85,214,190,.08);
-      border: 1px solid rgba(85,214,190,.16);
-      color: #c4f5e9;
-      padding: 7px 11px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 500;
-    }
-
-    /* PROJECTS */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .project-card {
-      padding: 27px;
-      display: flex;
-      flex-direction: column;
-      transition: .25s;
-    }
-
-    .project-number {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      margin-bottom: 17px;
-    }
-
-    .project-card h3 {
-      font-size: 19px;
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-
-    .project-card .skill-tags {
-      margin-bottom: 24px;
-    }
-
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-top: auto;
-    }
-
-    .project-links a {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .project-links a:hover {
-      color: #fff;
-    }
-
-    /* EXPERIENCE */
-
-    .experience-card,
-    .education-card {
-      padding: 30px;
-      transition: .25s;
-    }
-
-    .experience-top,
-    .education-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
-
-    .experience-card h3,
-    .education-card h3 {
-      font-size: 17px;
-    }
-
-    .company,
-    .college {
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-
-    .date {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .experience-card ul {
-      padding-left: 19px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .experience-card li {
-      padding: 4px 0;
-    }
-
-    /* EDUCATION */
-
-    .education-list {
-      display: grid;
-      gap: 15px;
-    }
-
-    .education-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 5px;
-    }
-
-    /* CERTIFICATIONS */
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .cert-card {
-      padding: 21px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      transition: .25s;
-    }
-
-    .cert-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      border-radius: 9px;
-      background: rgba(85,214,190,.12);
-      color: var(--accent);
-      font-size: 18px;
-    }
-
-    .cert-card h3 {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .cert-card p {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 4px;
-    }
-
-    /* CONTACT */
-
-    .contact-card {
-      padding: 35px;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .contact-card h3 {
-      font-size: 23px;
-      margin-bottom: 10px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 13px;
-    }
-
-    .contact-links a {
-      color: var(--muted);
-      font-size: 13px;
-      overflow-wrap: anywhere;
-      transition: .2s;
-    }
-
-    .contact-links a:hover {
-      color: var(--accent);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 25px 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding-top: 65px;
-      }
-
-      .profile-card {
-        max-width: 520px;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .container {
-        width: 90%;
-      }
-
-      nav {
-        min-height: 68px;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        width: 100%;
-        padding: 20px 5%;
-        background: #0c1526;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 75px;
-      }
-
-      .hero h1 {
-        font-size: 45px;
-        letter-spacing: -2px;
-      }
-
-      .hero-description {
-        font-size: 14px;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-
-      .section-heading h2 {
-        font-size: 29px;
-      }
-
-      .skills-grid,
-      .projects-grid,
-      .cert-grid,
-      .contact-card {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-card,
-      .about-text,
-      .experience-card,
-      .education-card,
-      .contact-card {
-        padding: 23px;
-      }
-
-      .stats {
-        gap: 10px;
-      }
-
-      .stat-card {
-        padding: 17px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header>
-    <nav class="container">
-      <a href="#home" class="logo">Pranay<span>.</span></a>
+<header>
+<div class="container">
+<nav>
+    <div class="logo">Pranay<span>.</span></div>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+    <ul id="navLinks">
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#education" onclick="closeMenu()">Education</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+</nav>
+</div>
+</header>
 
-  <main>
+<!-- Hero -->
+<div class="hero">
+<div class="container hero-content">
 
-    <!-- HERO -->
-    <section class="container hero" id="home">
+<div>
+    <div class="tag">2026 COMPUTER SCIENCE GRADUATE</div>
 
-      <div>
-        <div class="eyebrow">
-          2026 Computer Science Graduate · Open to Opportunities
+    <h1>Hello, I'm<br><span>Pranay Teja.</span></h1>
+
+    <p>
+        An aspiring Java and Full-Stack Developer with a foundation
+        in Java, Python, SQL and web technologies. I enjoy building
+        useful applications, connecting frontend interfaces with
+        databases and solving practical problems through code.
+    </p>
+
+    <div class="buttons">
+        <a href="#projects" class="btn primary">Explore Projects</a>
+        <a href="Pranay_Teja_Resume.pdf" class="btn" download>Download Resume</a>
+        <a href="#contact" class="btn">Contact Me</a>
+    </div>
+
+    <div class="tech-row">
+        <i class="devicon-java-plain" title="Java"></i>
+        <i class="devicon-python-plain" title="Python"></i>
+        <i class="devicon-html5-plain" title="HTML"></i>
+        <i class="devicon-css3-plain" title="CSS"></i>
+        <i class="devicon-javascript-plain" title="JavaScript"></i>
+        <i class="devicon-mysql-original" title="MySQL"></i>
+        <i class="devicon-git-plain" title="Git"></i>
+    </div>
+</div>
+
+<div class="profile-card">
+    <div class="initials">PT</div>
+
+    <h2>Nalliboina Pranay Teja</h2>
+    <div class="role">Java Developer | Full-Stack Developer</div>
+
+    <p>B.Tech – Computer Science and Engineering (Artificial Intelligence)</p>
+    <p>Audisankara College of Engineering & Technology · 2026</p>
+    <p><strong>Location:</strong> Bengaluru, India</p>
+    <p><strong>GitHub:</strong> Pranay20189</p>
+    <p style="color:var(--accent); margin-top:20px;">
+        ● Open to Entry-Level Opportunities
+    </p>
+</div>
+
+</div>
+</div>
+
+<!-- About -->
+<section id="about">
+<div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">A little about my background</p>
+
+    <p class="about-text">
+        I'm Nalliboina Pranay Teja, a 2026 graduate in Computer
+        Science and Engineering (Artificial Intelligence).
+        I have completed a Full Stack Development internship at
+        KodNest Technologies, Bengaluru. I am interested in Java
+        development, software engineering and building practical
+        web applications. I continuously work on improving my
+        programming and problem-solving skills.
+    </p>
+</div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+<div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-subtitle">Technologies and tools I work with</p>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <i class="devicon-java-plain"></i>
+            <h3>Java</h3>
         </div>
 
-        <h1>
-          Hello, I'm
-          <span>Pranay Teja.</span>
-        </h1>
+        <div class="skill-card">
+            <i class="devicon-python-plain"></i>
+            <h3>Python</h3>
+        </div>
 
-        <p class="hero-description">
-          An aspiring <strong>Java & Full-Stack Developer</strong>
-          with a foundation in Java, Python, SQL and web technologies.
-          I enjoy building useful applications, connecting frontends
-          with databases, and solving real-world problems through code.
+        <div class="skill-card">
+            <i class="devicon-mysql-original"></i>
+            <h3>SQL & MySQL</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="devicon-html5-plain"></i>
+            <h3>HTML & CSS</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="devicon-javascript-plain"></i>
+            <h3>JavaScript</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="devicon-flask-original"></i>
+            <h3>Flask</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="devicon-git-plain"></i>
+            <h3>Git & GitHub</h3>
+        </div>
+
+        <div class="skill-card">
+            <i class="devicon-vscode-plain"></i>
+            <h3>VS Code</h3>
+        </div>
+
+    </div>
+
+    <p class="about-text" style="margin-top:22px;">
+        Core Concepts: OOP, DSA, Collections and Exception Handling.
+    </p>
+</div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+<div class="container">
+    <h2 class="section-title">Internship Experience</h2>
+    <p class="section-subtitle">My professional learning experience</p>
+
+    <div class="experience-card">
+        <h3>Full Stack Development Intern</h3>
+        <div class="date">KodNest Technologies · Bengaluru | Aug 2025 – Jun 2026</div>
+
+        <p>
+            Worked on software development activities involving
+            Java programming, MySQL database operations, frontend
+            development and manual testing. Gained practical
+            experience in developing application features,
+            connecting frontend interfaces with databases and
+            working with a development team.
         </p>
+    </div>
+</div>
+</section>
 
-        <div class="buttons">
+<!-- Projects -->
+<section id="projects">
+<div class="container">
+    <h2 class="section-title">My Projects</h2>
+    <p class="section-subtitle">Some applications I have developed</p>
 
-          <a href="#projects" class="btn btn-primary">
-            Explore Projects ↗
-          </a>
+    <div class="projects-grid">
 
-          <a href="./Pranay_Teja_Resume.pdf"
-             download="Pranay_Teja_Resume.pdf"
-             class="btn btn-outline">
-            ↓ Download Resume
-          </a>
-
-          <a href="#contact" class="btn btn-outline">
-            Contact Me
-          </a>
-
-          <a href="https://github.com/Pranay20189"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="btn btn-outline">
-            GitHub ↗
-          </a>
-
-        </div>
-      </div>
-
-      <div class="profile-card">
-        <div class="avatar">PT</div>
-
-        <h2>Nalliboina Pranay Teja</h2>
-        <div class="profile-role">
-          Java Developer | Full-Stack Developer
-        </div>
-
-        <div class="profile-info">
-          <div>B.Tech – Computer Science and Engineering (Artificial Intelligence)</div>
-          <div>Audisankara College of Engineering & Technology · 2026</div>
-          <div><strong>Location:</strong> Bengaluru, India</div>
-          <div><strong>Email:</strong> pranaytejanalliboina@gmail.com</div>
-          <div><strong>Phone:</strong> +91 93910 95532</div>
-        </div>
-
-        <div class="availability">
-          ● Open to Entry-Level Opportunities
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Introduction</div>
-          <h2>About Me</h2>
-          <p>A little about my background and interests.</p>
-        </div>
-
-        <div class="about-grid">
-
-          <div class="about-text">
-            <p>
-              I am a 2026 Computer Science and Engineering graduate
-              specializing in Artificial Intelligence from Audisankara
-              College of Engineering & Technology.
-            </p>
-
-            <p>
-              I have hands-on experience in Java, Python, SQL,
-              MySQL and full-stack web development through my internship
-              and academic projects.
-            </p>
-
-            <p>
-              During my internship at KodNest Technologies, I worked
-              on web application development, database integration,
-              testing and debugging.
-            </p>
-
-            <p>
-              I am looking for an entry-level opportunity where I can
-              apply my technical knowledge, learn from experienced
-              developers and contribute to real-world projects.
-            </p>
-          </div>
-
-          <div class="stats">
-
-            <div class="stat-card">
-              <h3>8.61</h3>
-              <p>B.Tech CGPA</p>
-            </div>
-
-            <div class="stat-card">
-              <h3>2026</h3>
-              <p>Graduation Year</p>
-            </div>
-
-            <div class="stat-card">
-              <h3>02</h3>
-              <p>Projects</p>
-            </div>
-
-            <div class="stat-card">
-              <h3>04</h3>
-              <p>Certifications</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Technical Expertise</div>
-          <h2>My Skills</h2>
-          <p>Technologies and concepts I have worked with.</p>
-        </div>
-
-        <div class="skills-grid">
-
-          <div class="skill-card">
-            <h3>Programming & Core Concepts</h3>
-            <div class="skill-tags">
-              <span class="tag">Java</span>
-              <span class="tag">Python</span>
-              <span class="tag">OOP</span>
-              <span class="tag">DSA</span>
-              <span class="tag">Collections</span>
-              <span class="tag">Exception Handling</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <h3>Web & Backend</h3>
-            <div class="skill-tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Flask</span>
-              <span class="tag">React.js</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">TypeScript</span>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <h3>Database & Tools</h3>
-            <div class="skill-tags">
-              <span class="tag">SQL</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Git</span>
-              <span class="tag">GitHub</span>
-              <span class="tag">VS Code</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">My Work</div>
-          <h2>Featured Projects</h2>
-          <p>Some applications I developed during my learning journey.</p>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- PROJECT 01 -->
-          <div class="project-card">
+        <div class="project-card">
             <div class="project-number">PROJECT 01</div>
 
             <h3>Hyperlocal Service Marketplace</h3>
 
             <p>
-              Developed a web-based platform that connects customers
-              with local service providers. It supports role-based
-              authentication, service discovery, booking management
-              and customer reviews.
+                Developed a web-based platform that connects
+                customers with local service providers. Users
+                can discover services, book appointments and
+                manage their service requests through a
+                simple interface.
             </p>
 
-            <div class="skill-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Flask</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
+            <ul>
+                <li>Implemented customer and worker role-based login.</li>
+                <li>Added service discovery and booking functionality.</li>
+                <li>Implemented appointment management and booking status.</li>
+                <li>Added ratings and reviews for service providers.</li>
+                <li>Connected the Flask backend with MySQL database.</li>
+            </ul>
+
+            <div class="tech-tags">
+                <span>Python</span>
+                <span>Flask</span>
+                <span>MySQL</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
             </div>
 
             <div class="project-links">
-              <a href="https://hyperlocal-service-marketplace-30g6.onrender.com/"
-                 target="_blank" rel="noopener noreferrer">
-                Live Demo ↗
-              </a>
+                <a href="https://hyperlocal-service-marketplace-30g6.onrender.com/"
+                   target="_blank">Live Demo ↗</a>
 
-              <a href="https://github.com/Pranay20189/Hyperlocal-service-Marketplace"
-                 target="_blank" rel="noopener noreferrer">
-                GitHub Source ↗
-              </a>
+                <a href="https://github.com/Pranay20189/Hyperlocal-service-Marketplace"
+                   target="_blank">GitHub ↗</a>
             </div>
-          </div>
+        </div>
 
-          <!-- PROJECT 02 -->
-          <div class="project-card">
+        <div class="project-card">
             <div class="project-number">PROJECT 02</div>
 
-            <h3>Full-Stack Email Scheduler Web Application</h3>
+            <h3>Full-Stack Email Scheduler</h3>
 
             <p>
-              Built a full-stack email scheduling application that
-              allows users to compose and schedule emails.
-              Implemented frontend functionality and backend
-              scheduling logic with database integration.
+                Developed a web application that allows users
+                to compose emails and schedule them for delivery
+                at a selected date and time. The application
+                uses a frontend interface and backend scheduling
+                functionality to manage email tasks.
             </p>
 
-            <div class="skill-tags">
-              <span class="tag">React.js</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">MySQL</span>
+            <ul>
+                <li>Developed an interface for composing emails.</li>
+                <li>Implemented email scheduling functionality.</li>
+                <li>Created backend logic to process scheduled emails.</li>
+                <li>Used MySQL for database operations.</li>
+                <li>Integrated frontend and backend application components.</li>
+            </ul>
+
+            <div class="tech-tags">
+                <span>React.js</span>
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>TypeScript</span>
+                <span>MySQL</span>
             </div>
 
             <div class="project-links">
-              <a href="https://pranay-email-scheduler.vercel.app/"
-                 target="_blank" rel="noopener noreferrer">
-                Live Demo ↗
-              </a>
+                <a href="https://pranay-email-scheduler.vercel.app/"
+                   target="_blank">Live Demo ↗</a>
             </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Professional Journey</div>
-          <h2>Internship Experience</h2>
         </div>
 
-        <div class="experience-card">
+    </div>
+</div>
+</section>
 
-          <div class="experience-top">
-            <div>
-              <h3>Full-Stack Development Intern</h3>
-              <div class="company">
-                KodNest Technologies · Bengaluru
-              </div>
-            </div>
+<!-- Education -->
+<section id="education">
+<div class="container">
+    <h2 class="section-title">Education</h2>
+    <p class="section-subtitle">Academic qualification</p>
 
-            <div class="date">Aug 2025 – Jun 2026</div>
-          </div>
+    <div class="education-card">
+        <h3>B.Tech – Computer Science and Engineering (Artificial Intelligence)</h3>
+        <p>Audisankara College of Engineering & Technology</p>
+        <p>Graduation Year: 2026</p>
+    </div>
+</div>
+</section>
 
-          <ul>
-            <li>Developed responsive web applications using HTML, CSS and JavaScript.</li>
-            <li>Worked with MySQL databases and backend integration.</li>
-            <li>Participated in testing, debugging and feature enhancement activities.</li>
-          </ul>
+<!-- Contact -->
+<section id="contact">
+<div class="container">
+    <div class="contact-box">
+        <h2 class="section-title">Let's Connect</h2>
 
-        </div>
-      </div>
-    </section>
+        <p>
+            I'm interested in entry-level Software Developer
+            and Java Developer opportunities. Feel free to
+            connect with me.
+        </p>
 
-    <!-- EDUCATION -->
-    <section id="education">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Academic Background</div>
-          <h2>Education</h2>
-        </div>
-
-        <div class="education-list">
-
-          <div class="education-card">
-            <div class="education-top">
-              <div>
-                <h3>B.Tech – Computer Science and Engineering (AI)</h3>
-                <div class="college">
-                  Audisankara College of Engineering & Technology
-                </div>
-              </div>
-              <div class="date">2026</div>
-            </div>
-            <p>CGPA: 8.61</p>
-          </div>
-
-          <div class="education-card">
-            <div class="education-top">
-              <div>
-                <h3>Intermediate – MPC</h3>
-                <div class="college">Narayana Junior College</div>
-              </div>
-              <div class="date">2022</div>
-            </div>
-            <p>Percentage: 90.3%</p>
-          </div>
-
-          <div class="education-card">
-            <div class="education-top">
-              <div>
-                <h3>Secondary School Certificate (SSC)</h3>
-                <div class="college">Narayana E-Techno School</div>
-              </div>
-              <div class="date">2020</div>
-            </div>
-            <p>Percentage: 100%</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Achievements</div>
-          <h2>Certifications</h2>
-        </div>
-
-        <div class="cert-grid">
-
-          <div class="cert-card">
-            <div class="cert-icon">✓</div>
-            <div>
-              <h3>Java Full Stack Development</h3>
-              <p>KodNest Technologies · June 2026</p>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-icon">✓</div>
-            <div>
-              <h3>Machine Learning</h3>
-              <p>NPTEL · March 2025</p>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-icon">✓</div>
-            <div>
-              <h3>Artificial Intelligence Fundamentals</h3>
-              <p>IBM · November 2025</p>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-icon">✓</div>
-            <div>
-              <h3>AI Machine Learning Engineer</h3>
-              <p>NSDC · June 2024</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Get In Touch</div>
-          <h2>Let's Connect</h2>
-          <p>I'm open to entry-level software development opportunities.</p>
-        </div>
-
-        <div class="contact-card">
-
-          <div>
-            <h3>Have an opportunity?</h3>
-
-            <p>
-              Feel free to contact me for job opportunities,
-              collaborations or professional discussions.
-              I would be happy to connect.
-            </p>
-
-            <br>
-
-            <a href="mailto:pranaytejanalliboina@gmail.com"
-               class="btn btn-primary">
-              Send Me an Email ↗
+        <div class="contact-links">
+            <a href="https://github.com/Pranay20189" target="_blank">
+                GitHub
             </a>
-          </div>
 
-          <div class="contact-links">
+            <a href="https://www.linkedin.com/" target="_blank">
+                LinkedIn
+            </a>
 
             <a href="mailto:pranaytejanalliboina@gmail.com">
-              ✉ pranaytejanalliboina@gmail.com
+                Email Me
             </a>
-
-            <a href="tel:+919391095532">
-              ☎ +91 93910 95532
-            </a>
-
-            <a href="https://www.linkedin.com/in/nalliboina-pranay-teja-2945802a6/"
-               target="_blank" rel="noopener noreferrer">
-              ↗ LinkedIn Profile
-            </a>
-
-            <a href="https://github.com/Pranay20189"
-               target="_blank" rel="noopener noreferrer">
-              ↗ GitHub Profile
-            </a>
-
-            <a href="https://pranay20189.github.io/Portfolio/"
-               target="_blank" rel="noopener noreferrer">
-              ↗ Portfolio Website
-            </a>
-
-          </div>
         </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      © <span id="year"></span> Nalliboina Pranay Teja. All rights reserved.
     </div>
-  </footer>
+</div>
+</section>
 
-  <script>
-    // Mobile navigation
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+<footer>
+    <p>© 2026 Nalliboina Pranay Teja. All Rights Reserved.</p>
+</footer>
 
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
 
-      menuBtn.textContent =
-        navLinks.classList.contains("active") ? "✕" : "☰";
-    });
-
-    // Close mobile menu after clicking a link
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuBtn.textContent = "☰";
-      });
-    });
-
-    // Dynamic copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("show");
+}
+</script>
 
 </body>
 </html>
