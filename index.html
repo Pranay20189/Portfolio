@@ -4,11 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pranay Teja | Software Developer</title>
+<title>Nalliboina Pranay Teja | Software Developer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 <style>
@@ -19,37 +18,42 @@
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #0b1120;
-    color: #e5e7eb;
-    line-height: 1.7;
+:root {
+    --bg: #101a2d;
+    --card: #17253b;
+    --card-light: #1c2d46;
+    --accent: #55c8f5;
+    --purple: #9994f5;
+    --text: #edf3fc;
+    --muted: #b0bfd2;
+    --border: #30435e;
 }
 
-:root {
-    --bg: #0b1120;
-    --card: #121d30;
-    --accent: #38bdf8;
-    --purple: #818cf8;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
+body {
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(ellipse at 15% 10%, #1b3550 0%, transparent 38%),
+        radial-gradient(ellipse at 90% 45%, #25264c 0%, transparent 35%),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.7;
 }
 
 /* NAVBAR */
 
 header {
-    width: 100%;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(11,17,32,0.96);
-    border-bottom: 1px solid #25334a;
+    background: rgba(16,26,45,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
 }
 
 nav {
     max-width: 1200px;
     margin: auto;
-    padding: 18px 25px;
+    padding: 17px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,14 +71,14 @@ nav {
 
 nav ul {
     display: flex;
-    gap: 28px;
+    gap: 25px;
     list-style: none;
 }
 
 nav ul a {
     color: #cbd5e1;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     transition: .3s;
 }
 
@@ -82,23 +86,23 @@ nav ul a:hover {
     color: var(--accent);
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero {
     max-width: 1200px;
     margin: auto;
-    min-height: 650px;
-    padding: 100px 25px;
+    min-height: 630px;
+    padding: 85px 25px;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.2fr .8fr;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
 }
 
 .hero-tag {
-    color: #38bdf8;
-    letter-spacing: 3px;
-    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 2.5px;
+    font-size: 12px;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -111,75 +115,77 @@ nav ul a:hover {
 }
 
 .hero h1 span {
-    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    background: linear-gradient(90deg, #55c8f5, #aaa0ff);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
 .hero h3 {
-    color: #cbd5e1;
-    font-size: 21px;
+    color: #d0dced;
+    font-size: 20px;
     margin: 18px 0;
     font-weight: 500;
 }
 
 .hero p {
     color: var(--muted);
-    max-width: 620px;
-    font-size: 15px;
-    margin-bottom: 30px;
+    max-width: 600px;
+    font-size: 14px;
+    margin-bottom: 28px;
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 13px;
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 23px;
+    padding: 11px 22px;
     border-radius: 7px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     transition: .3s;
 }
 
 .btn-primary {
-    color: #07111f;
+    color: #0b1728;
     background: var(--accent);
 }
 
 .btn-primary:hover {
-    background: #7dd3fc;
+    background: #8cdefb;
     transform: translateY(-3px);
 }
 
 .btn-outline {
     color: white;
-    border: 1px solid #475569;
+    border: 1px solid #526783;
 }
 
 .btn-outline:hover {
     border-color: var(--accent);
     color: var(--accent);
+    transform: translateY(-3px);
 }
 
-/* TECHNOLOGY LOGOS */
+/* TECHNOLOGY SYMBOLS */
 
 .tech-area {
     position: relative;
-    min-height: 420px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .tech-circle {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #334155;
+    width: 290px;
+    height: 290px;
+    border: 1px solid #40536e;
     border-radius: 50%;
     position: absolute;
 }
@@ -188,16 +194,16 @@ nav ul a:hover {
     content: "";
     position: absolute;
     inset: 35px;
-    border: 1px dashed #475569;
+    border: 1px dashed #52617d;
     border-radius: 50%;
 }
 
 .center-logo {
-    width: 115px;
-    height: 115px;
-    background: linear-gradient(135deg, #1e3a5f, #263b69);
-    border: 1px solid #475569;
-    border-radius: 25px;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #23476b, #414276);
+    border: 1px solid #60718e;
+    border-radius: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,28 +219,29 @@ nav ul a:hover {
 
 .center-logo small {
     color: var(--accent);
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .tech-icon {
     position: absolute;
-    width: 62px;
-    height: 62px;
-    border-radius: 15px;
-    background: #17243a;
-    border: 1px solid #334155;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    background: #1d3049;
+    border: 1px solid #40536e;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 35px;
-    box-shadow: 0 8px 20px #0004;
+    font-size: 34px;
+    box-shadow: 0 7px 20px #0004;
     transition: .3s;
     z-index: 3;
 }
 
 .tech-icon:hover {
-    transform: translateY(-7px) scale(1.08);
+    transform: translateY(-5px);
     border-color: var(--accent);
+    background: #263e5b;
 }
 
 .tech-icon:nth-of-type(2) { top: 30px; left: 45%; }
@@ -251,13 +258,14 @@ nav ul a:hover {
 section {
     max-width: 1200px;
     margin: auto;
-    padding: 75px 25px;
+    padding: 70px 25px;
+    scroll-margin-top: 70px;
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 31px;
     color: white;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .section-title span {
@@ -266,61 +274,68 @@ section {
 
 .section-subtitle {
     color: var(--muted);
-    margin-bottom: 35px;
-    font-size: 14px;
+    margin-bottom: 30px;
+    font-size: 13px;
 }
 
 .line {
-    width: 65px;
+    width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    background: linear-gradient(90deg, var(--accent), var(--purple));
     margin: 12px 0 25px;
+    border-radius: 5px;
 }
 
 /* ABOUT */
 
 .about-box {
-    background: var(--card);
-    border: 1px solid #26364d;
+    background: linear-gradient(135deg, #1a2b43, #1b2941);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 30px;
+    transition: .3s;
+}
+
+.about-box:hover {
+    border-color: #547b9e;
 }
 
 .about-box p {
-    color: #cbd5e1;
-    font-size: 15px;
+    color: #d0dbea;
+    font-size: 14px;
 }
 
 /* SKILLS */
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
 .skill-card {
     background: var(--card);
-    border: 1px solid #26364d;
-    padding: 22px;
-    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 23px;
+    border-radius: 11px;
     transition: .3s;
 }
 
 .skill-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-5px);
+    border-color: #5b9fc4;
+    transform: translateY(-4px);
+    background: var(--card-light);
 }
 
 .skill-card h3 {
     color: var(--accent);
-    font-size: 16px;
-    margin-bottom: 15px;
+    font-size: 15px;
+    margin-bottom: 12px;
 }
 
 .skill-card p {
-    color: #cbd5e1;
-    font-size: 14px;
+    color: #d0dbea;
+    font-size: 13px;
 }
 
 .skill-logos {
@@ -328,39 +343,45 @@ section {
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 16px;
-    font-size: 32px;
-    color: #cbd5e1;
+    font-size: 31px;
+    color: #dce6f3;
 }
 
 /* EXPERIENCE */
 
 .experience-card {
     background: var(--card);
+    border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
     padding: 28px;
-    border-radius: 8px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.experience-card:hover {
+    background: var(--card-light);
 }
 
 .experience-card h3 {
     color: white;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .experience-card h4 {
     color: var(--accent);
-    font-size: 15px;
+    font-size: 14px;
     margin: 5px 0;
 }
 
 .date {
-    color: var(--muted);
-    font-size: 13px;
+    color: #a9b8cb;
+    font-size: 12px;
     margin-bottom: 15px;
 }
 
 .experience-card p {
-    color: #cbd5e1;
-    font-size: 14px;
+    color: #d0dbea;
+    font-size: 13px;
 }
 
 /* PROJECTS */
@@ -368,46 +389,48 @@ section {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 22px;
 }
 
 .project-card {
-    background: var(--card);
-    border: 1px solid #26364d;
+    background: linear-gradient(145deg, #192a42, #17243a);
+    border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 28px;
+    padding: 27px;
     display: flex;
     flex-direction: column;
     transition: .3s;
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--accent);
+    transform: translateY(-5px);
+    border-color: #589cc1;
+    box-shadow: 0 12px 28px #0003;
 }
 
 .project-number {
     color: var(--accent);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .project-card h3 {
     color: white;
-    font-size: 21px;
+    font-size: 20px;
     margin: 12px 0;
 }
 
 .project-card p {
-    color: #aebbd0;
-    font-size: 14px;
+    color: #b9c7d9;
+    font-size: 13px;
     margin-bottom: 15px;
 }
 
 .project-card ul {
-    padding-left: 20px;
-    color: #cbd5e1;
-    font-size: 13px;
+    padding-left: 19px;
+    color: #d0dbea;
+    font-size: 12px;
     margin-bottom: 20px;
 }
 
@@ -423,17 +446,19 @@ section {
 }
 
 .project-tech span {
-    background: #1e3450;
-    color: #7dd3fc;
-    padding: 5px 11px;
+    background: #263d59;
+    color: #8ddcff;
+    border: 1px solid #344d6a;
+    padding: 5px 10px;
     border-radius: 5px;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .project-links {
     display: flex;
-    gap: 12px;
+    gap: 18px;
     margin-top: auto;
+    padding-top: 10px;
 }
 
 .project-links a {
@@ -451,13 +476,19 @@ section {
 
 .education-card {
     background: var(--card);
-    border: 1px solid #26364d;
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 25px;
+    transition: .3s;
+}
+
+.education-card:hover {
+    border-color: #589cc1;
 }
 
 .education-card h3 {
     color: white;
+    font-size: 18px;
 }
 
 .education-card h4 {
@@ -468,27 +499,28 @@ section {
 
 .education-card p {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 7px;
 }
 
 /* CONTACT */
 
 .contact-box {
-    background: linear-gradient(120deg, #142b45, #20294c);
-    border: 1px solid #334b69;
-    border-radius: 12px;
+    background: linear-gradient(120deg, #1b3652, #292e55);
+    border: 1px solid #435a7b;
+    border-radius: 13px;
     text-align: center;
     padding: 45px 25px;
 }
 
 .contact-box h2 {
     color: white;
-    font-size: 28px;
+    font-size: 27px;
 }
 
 .contact-box p {
-    color: #cbd5e1;
+    color: #d0dbea;
+    font-size: 14px;
     margin: 15px 0 25px;
 }
 
@@ -496,40 +528,42 @@ section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 13px;
 }
 
 .contact-links a {
     color: white;
     text-decoration: none;
-    border: 1px solid #64748b;
-    padding: 10px 18px;
+    border: 1px solid #7185a2;
+    padding: 9px 18px;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 12px;
+    transition: .3s;
 }
 
 .contact-links a:hover {
     color: var(--accent);
     border-color: var(--accent);
+    transform: translateY(-3px);
 }
 
 /* FOOTER */
 
 footer {
     text-align: center;
-    padding: 25px;
-    border-top: 1px solid #26364d;
-    color: var(--muted);
-    font-size: 13px;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    color: #aab8ca;
+    font-size: 12px;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 
 @media(max-width:850px) {
     .hero {
         grid-template-columns: 1fr;
-        padding-top: 70px;
-        gap: 20px;
+        padding-top: 65px;
+        gap: 15px;
     }
 
     .tech-area {
@@ -558,11 +592,11 @@ footer {
     }
 
     nav ul {
-        gap: 12px;
+        gap: 11px;
     }
 
     nav ul a {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .hero h1 {
@@ -585,7 +619,7 @@ footer {
     .tech-icon {
         width: 48px;
         height: 48px;
-        font-size: 27px;
+        font-size: 26px;
     }
 
     .center-logo {
@@ -594,7 +628,11 @@ footer {
     }
 
     .section-title {
-        font-size: 27px;
+        font-size: 26px;
+    }
+
+    section {
+        padding: 55px 18px;
     }
 }
 </style>
@@ -644,11 +682,10 @@ footer {
             <a href="#projects" class="btn btn-primary">View Projects</a>
             <a href="#contact" class="btn btn-outline">Contact Me</a>
             <a href="https://github.com/Pranay20189"
-               target="_blank" class="btn btn-outline">GitHub</a>
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-outline">GitHub</a>
         </div>
     </div>
-
-    <!-- TECHNOLOGY SYMBOLS -->
 
     <div class="tech-area">
 
@@ -659,37 +696,14 @@ footer {
             <small>DEVELOPER</small>
         </div>
 
-        <div class="tech-icon">
-            <i class="devicon-java-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-python-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-mysql-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-html5-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-css3-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-javascript-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-git-plain colored"></i>
-        </div>
-
-        <div class="tech-icon">
-            <i class="devicon-flask-original"></i>
-        </div>
+        <div class="tech-icon"><i class="devicon-java-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-python-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-mysql-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-html5-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-css3-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-javascript-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-git-plain colored"></i></div>
+        <div class="tech-icon"><i class="devicon-flask-original"></i></div>
 
     </div>
 </div>
@@ -813,8 +827,6 @@ footer {
 
     <div class="projects-grid">
 
-        <!-- PROJECT 1 -->
-
         <div class="project-card">
 
             <div class="project-number">PROJECT 01</div>
@@ -848,15 +860,13 @@ footer {
 
             <div class="project-links">
                 <a href="https://hyperlocal-service-marketplace-30g6.onrender.com/"
-                   target="_blank">Live Demo ↗</a>
+                   target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
 
                 <a href="https://github.com/Pranay20189/Hyperlocal-service-Marketplace"
-                   target="_blank">GitHub ↗</a>
+                   target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             </div>
 
         </div>
-
-        <!-- PROJECT 2 -->
 
         <div class="project-card">
 
@@ -889,10 +899,10 @@ footer {
 
             <div class="project-links">
                 <a href="https://pranay-email-scheduler.vercel.app/"
-                   target="_blank">Live Demo ↗</a>
+                   target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
 
                 <a href="https://github.com/Pranay20189"
-                   target="_blank">GitHub ↗</a>
+                   target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             </div>
 
         </div>
@@ -908,6 +918,7 @@ footer {
 
     <div class="education-card">
         <h3>Bachelor of Technology (B.Tech)</h3>
+
         <h4>
             Computer Science and Engineering
             (Artificial Intelligence)
@@ -938,17 +949,17 @@ footer {
             </a>
 
             <a href="https://github.com/Pranay20189"
-               target="_blank">
+               target="_blank" rel="noopener noreferrer">
                 GitHub
             </a>
 
             <a href="https://www.linkedin.com/"
-               target="_blank">
+               target="_blank" rel="noopener noreferrer">
                 LinkedIn
             </a>
 
             <a href="https://pranay20189.github.io/Portfolio/"
-               target="_blank">
+               target="_blank" rel="noopener noreferrer">
                 Portfolio
             </a>
 
